@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시맨틱태그</title>
+    <style>
+      #homepage section,
+      nav,
+      main,
+      footer,
+      aside,
+      article {
+        border: 1px solid grey;
+        background-color: lightgray;
+      }
+      #homepage section {
+        margin: 1rem;
+        padding: 1rem;
+      }
+      #homepage nav {
+        border: 1px solid grey;
+        margin: 0;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>시맨틱 태그</h2>
+      <div>division? divide -> 구역을 나누는 것</div>
+      <!-- div (block), span (inline) -->
+      <!-- block은 구역 -> a 구역에 a-1 구역에 a-1-1 구역... -->
+      <div>
+        전체 페이지
+        <div>
+          네비게이션
+          <div>
+            리스트
+            <div style="display: inline-block">아이템</div>
+            <div style="display: inline-block">아이템</div>
+            <div style="display: inline-block">아이템</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <!-- SEO : Search Engine Optimization -->
+    <!-- 검색엔진 최적화 -> 프로그램? => 코드만 봄 -->
+    <section id="homepage">
+      <header>반갑습니다 개발자 페이지입니다~</header>
+      <nav>[홈] [게시판] [자료실]</nav>
+      <main>
+        오늘의 개발 소식
+        <section>
+          <article>글, 기사</article>
+          <aside>사이드바</aside>
+        </section>
+      </main>
+      <footer>2025. 김개발 작성.</footer>
+    </section>
+  </body>
+</html>
