@@ -5,5 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <style>
+    /* 내부 스타일 시트 */
+    /* 선택자 { 스타일 속성: 값; 스타일 속성: 값; 스타일 속성: 값; ... } */
+    .block {
+      background-color: lightblue;
+      display: block;
+      /* display: none; */
+      padding: 1rem;
+      margin: 1rem;
+      width: 240px;
+      height: 240px;
+    }
+    .inline {
+      /* 글자 콘텐츠 취급 -> 줄 높이 */
+      display: inline;
+      background-color: lightgreen;
+      padding: 1rem; /* x */
+      margin: 1rem; /* 왼쪽, 오른쪽만 적용 */
+      width: 240px; /* 사이즈 관련된 건 무시 */
+      height: 240px; /* 사이즈 관련된 건 무시 */
+    }
+    .inline-block {
+      /* 가로 100%를 차지하게 하지 않지만, 박스모델은 온전히 적용 */
+      display: inline-block;
+      background-color: lightcoral;
+      padding: 1rem; /* x */
+      margin: 1rem; /* 왼쪽, 오른쪽만 적용 */
+      width: 240px; /* 사이즈 관련된 건 무시 */
+      height: 240px; /* 사이즈 관련된 건 무시 */
+    }
+  </style>
+  <body>
+    <!-- ****************************************************
+       [브리핑 — 개념 요약]
+
+       1) Display 모델
+          - block: 한 줄 전체 차지. width 100% 기본. 줄바꿈 발생.
+          - inline: 콘텐츠 길이만큼만 차지. width/height, margin-top/bottom 무시.
+          - inline-block: inline처럼 옆에 배치되지만 block 속성(폭, 패딩 등) 사용 가능.
+          - flex: 한 축(가로/세로) 기준으로 아이템을 배치하는 1차원 레이아웃.
+
+       2) 시맨틱 태그
+          - div: 의미 없는 단순 컨테이너.
+          - header, footer: 상단/하단 영역.
+          - nav: 내비게이션 메뉴.
+          - main: 문서의 주요 내용.
+          - section: 주제별 구획.
+          - article: 독립적 컨텐츠 블록.
+          → 시맨틱 태그는 문서 구조를 명확히 하여 SEO·접근성에 도움.
+
+       3) 가로·세로 정렬과 한계
+          - text-align: inline 요소의 가로 정렬.
+          - margin: auto; → block 요소를 부모 안에서 가로 가운데 배치.
+          - line-height: 텍스트 세로 정렬 흉내.
+          - vh/vw: viewport 단위 (화면 크기 비율).
+            · 100vw = 브라우저 폭 100%
+            · 100vh = 브라우저 높이 100%
+          → 하지만 세로 중앙정렬이나 복잡한 레이아웃은 여전히 불편.
+
+       4) Flexbox
+          - 주축(main axis), 교차축(cross axis) 개념으로 정렬.
+          - 주요 속성:
+            · display: flex;
+            · flex-direction: row / column (주축 방향 전환)
+            · justify-content: 주축 정렬 (start, center, end, space-between, space-around)
+            · align-items: 교차축 정렬 (start, center, end, stretch)
+            · gap: 아이템 간 간격
+          → float/position 대비 단순하고 반응형에 유리.
+     **************************************************** -->
+
+    <div>
+      <h2>Display</h2>
+      <!-- 메서드(method vs function?) : 매개변수(parameter) vs 인자/인수(argument) -->
+      <!-- tag vs element vs node -->
+      <!-- attribute vs property -->
+      <!-- attribute : 속성 -> 내가 내맘대로 key value 값을 지정하는 경우를 의미 global attribute가 존재하긴 하는데... 그냥 내가 작성하는 것, 클래스의 필드처럼. - 데이터를 담는다 -->
+      <!-- property : 이미 정의된 속성을 내가 불러서 쓰는 것. CSS -> 스타일링을 하기 위한 여러가지 기능들이 사전 정의 -> 불러다가 입력해서 쓰는 거라서 프로퍼티. -->
+      <!-- 태그명 어트리뷰트(속성)명 -->
+      <div class="block">block 요소</div>
+      <span class="inline">inline 요소 (span)</span>
+      <div class="block">block 요소</div>
+      <span class="inline">inline 요소 (span)</span>
+      <span class="inline">옆에 붙음</span>
+      <div>
+        <span class="inline-block">inline-block</span>
+        <span class="inline-block">inline-block</span>
+      </div>
+    </div>
+  </body>
 </html>
