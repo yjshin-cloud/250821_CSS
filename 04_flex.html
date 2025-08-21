@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex</title>
+    <style>
+      .flex-container {
+        background-color: lightsalmon;
+        border: 1px solid grey;
+        height: 240px;
+        display: flex; /* container -> 감싸주는 상위의 요소가 flex하면... */
+        /* 주축(main axis) -> 가로축, 교차축(cross axis) -> 세로축 */
+        /* 주축 정렬 : justify(조정)-content */
+        /* justify-content: start; */
+        justify-content: center;
+        /* 교차축 정렬 */
+        /* align-items: stretch; */
+        /*  빈 영역을 다 채우겠음 */
+        align-items: center;
+      }
+      .justify-content-space-between {
+        justify-content: space-between; /* 축을 기준으로 아이템들 사이에 고르게 여백 분포 -> 모든 걸 고르게 양 끝쪽으로 두고 중간은 고르게 분포 */
+      }
+      .justify-content-space-around {
+        justify-content: space-around; /* between과 유사하나, 전체적으로 양쪽에 평균적인 마진 길이의 50%씩 배치 */
+      }
+      .justify-content-space-evenly {
+        justify-content: space-evenly; /* around와 유사하나, 마진들의 크기가 모두 유사함 */
+      }
+      .flex-item {
+        /* display: inline-block; */
+        /* display: block; */
+        background-color: lightskyblue;
+        width: 100px;
+        aspect-ratio: 2; /* 가로/세로 비율 */
+        /* 띄어져있는 느낌 -> padding, border, margin */
+        border: 1px solid grey;
+        /* margin: 0.5rem; */
+      }
+      /* 교차축 정렬 */
+      .align-items-start {
+        align-items: start;
+      }
+      .align-items-end {
+        align-items: end;
+      }
+      /* 축 변경 */
+      .flex-direction-col {
+        /* flex-direction: row; */
+        /* 행 -> 주축, 열 -> 교축 */
+        flex-direction: column;
+      }
+      .flex-direction-row-reverse {
+        flex-direction: row-reverse;
+      }
+      .flex-direction-col-reverse {
+        flex-direction: column-reverse;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Flex(Flexbox)</h2>
+    <h3>가로 정렬 (메인(주) 축 정렬)</h3>
+    <section class="flex-container">
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+    <section class="flex-container justify-content-space-between">
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+    <section class="flex-container justify-content-space-around">
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+    <section class="flex-container justify-content-space-evenly">
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+    <h3>세로 정렬 (교차 축 정렬)</h3>
+    <section class="flex-container align-items-start">
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+    <section class="flex-container align-items-end">
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+    <h3>축 교체</h3>
+    <section
+      class="flex-container flex-direction-col justify-content-space-around"
+    >
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+    <section class="flex-container flex-direction-row-reverse">
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+    <!-- justify content => main axis -->
+    <!-- align items => cross axis -->
+    <section class="flex-container flex-direction-col-reverse align-items-end">
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+
+    <!-- gap -->
+    <h3>
+      갭(gap), 마진을 병합이나 개별 아이템의 차이점을 의식하지 않고 일괄 적용
+    </h3>
+    <section class="flex-container" style="gap: 2rem">
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+    </section>
+    <!-- wrap -->
+    <section
+      class="flex-container"
+      style="gap: 2rem; flex-wrap: wrap; overflow: scroll"
+    >
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+      <div class="flex-item">4번</div>
+      <div class="flex-item">5번</div>
+      <div class="flex-item">6번</div>
+      <div class="flex-item">7번</div>
+      <div class="flex-item">8번</div>
+      <div class="flex-item">9번</div>
+      <div class="flex-item">10번</div>
+    </section>
+    <section
+      class="flex-container"
+      style="gap: 2rem; flex-wrap: wrap-reverse; overflow: scroll"
+    >
+      <!-- reverse는 먼저 배치된 요소, 줄이 뒤로 가게... -->
+      <div class="flex-item">1번</div>
+      <div class="flex-item">2번</div>
+      <div class="flex-item">3번</div>
+      <div class="flex-item">4번</div>
+      <div class="flex-item">5번</div>
+      <div class="flex-item">6번</div>
+      <div class="flex-item">7번</div>
+      <div class="flex-item">8번</div>
+      <div class="flex-item">9번</div>
+      <div class="flex-item">10번</div>
+    </section>
+  </body>
+</html>
